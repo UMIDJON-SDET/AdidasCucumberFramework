@@ -6,11 +6,18 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features",
-        glue = "com/demoblaze/step_definitions",
-        dryRun = true,
-        tags = "@wip"
+
+        plugin = {"json:target/cucumber.json",       //json report
+                "html:target/cucumber-report.html",  //cucumber report
+                 "rerun:target/return.txt"},         //rerun test
+        features = "src/test/resources/features",    // feature directory path
+        glue = "com/demoblaze/step_definitions",     // step_definition package path
+        dryRun = false,                              //
+        tags = "@smoke"                                //
+
 )
 public class CukesRunner {
 
 }
+
+
